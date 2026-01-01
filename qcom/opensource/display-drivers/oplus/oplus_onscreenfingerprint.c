@@ -1004,7 +1004,7 @@ static int oplus_ofp_panel_cmd_set_nolock(void *dsi_panel, enum dsi_cmd_set_type
 
 	case DSI_CMD_LHBM_PRESSED_ICON_PWM:
 		oplus_ofp_set_hbm_state(true);
-#if defined(CONFIG_LEXUS_DTB)
+#ifdef CONFIG_LEXUS_DTB
 		rc = dsi_panel_set_backlight(panel, OPLUS_OFP_900NIT_DBV_LEVEL);
 #endif
 		break;
@@ -4313,7 +4313,7 @@ int oplus_ofp_touchpanel_event_notifier_call(struct notifier_block *nb, unsigned
 		if (action == EVENT_ACTION_FOR_FINGPRINT) {
 			OFP_DEBUG("EVENT_ACTION_FOR_FINGPRINT\n");
 
-#if defined(CONFIG_LEXUS_DTB)
+#ifdef CONFIG_LEXUS_DTB
 			struct dsi_display *d = oplus_display_get_current_display();
 			struct dsi_panel *p;
 
